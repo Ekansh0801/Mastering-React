@@ -296,19 +296,25 @@ const Navbar = () => {
 const ProductCard = () => {
     return (
         <div className='product_card'>
-            
+            {
+              productData.map((product,index) => {
+                return (
+                  <Product key={product.id} product={product}/>
+                )
+              })
+            }
         </div>
     )
 }
 
 const Product = (props) => {
-    console.log(props);
+  const {image,title,price,ratings} = props.product
     return (
         <div className='product'>
-            <img className='product_img' src={props.img}/>
-            <h1>{props.title}</h1>
-            <p>{props.ratings} ratings</p>
-            <p>Price : {props.price}</p>
+            <img className='product_img' src={image}/>
+            <h1>{title}</h1>
+            <p>{ratings} ratings</p>
+            <p>Price : {price}</p>
         </div>
     )
 }
