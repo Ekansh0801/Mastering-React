@@ -1,10 +1,10 @@
 const Product = (props) => {
-    const {image,title,price,ratings} = props.product
+    const {image,title,price,rating} = props.product
       return (
           <div className='product'>
               <img className='product_img' src={image}/>
               <h1>{title}</h1>
-              <p>{ratings} ratings</p>
+              <p>{rating.rate} ratings</p>
               <p>Price : {price}</p>
           </div>
       )
