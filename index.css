@@ -42,3 +42,33 @@
     background-color: #f0f0f0f0;
     margin: 10px;
 }
+
+.logo{
+    text-decoration: none;
+    color: inherit;
+}
+.men{
+    text-decoration: none;
+    color: inherit;
+}
+.women{
+    text-decoration: none;
+    color: inherit;
+}
+.kid{
+    text-decoration: none;
+    color: inherit;
+}
+
+.logo:hover{
+    cursor: pointer;
+}
+.men:hover{
+    cursor: pointer;
+}
+.women:hover{
+    cursor: pointer;
+}
+.kid:hover{
+    cursor: pointer;
+}

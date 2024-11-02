@@ -15,7 +15,10 @@ const ProductCard = () => {
      setFilteredList(resData);
      setTempProdList(resData);
   }
-
+ 
+   // []  ---> only called one time during rendering
+   // no dependency array passed ---> calles each time this page is rendered 
+   // [kuch]  ---> called each time kuch is changed
   useEffect(() => {
     fetchData();
   },[])
