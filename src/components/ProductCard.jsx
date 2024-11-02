@@ -1,10 +1,20 @@
 import Product from "./Product";
 import { productData } from "../utils/constant";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const ProductCard = () => {
 
-  const [filteredList,setFilteredList] = useState(productData);
+  const [filteredList,setFilteredList] = useState([]);
+  const  fetchData = async() => {
+    const data =  await fetch('https://fakestoreapi.com/products');
+    const resData = await data.json();
+    //  console.log(resData);
+     setFilteredList(resData);
+  }
+
+  useEffect(() => {
+    fetchData();
+  },[])
 
     return (
        <div>
