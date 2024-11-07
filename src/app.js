@@ -7,6 +7,7 @@ import Kid from "./components/Kid";
 import Men from "./components/Men";
 import Women from "./components/Women";
 import Error from "./components/Error";
+import ProductDetails from "./components/ProductDetails";
 
 {/* <div id="container">
     <h1>I am Heading h1</h1>
@@ -75,7 +76,11 @@ const appRouter = createBrowserRouter([
             {
                 path:'/women',
                 element:<Women/>
-            } 
+            },
+            {
+                path:'/product/:id',
+                element:<ProductDetails/>
+            }
         ],
         errorElement:<Error/>
     },

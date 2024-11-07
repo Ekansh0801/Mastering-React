@@ -2,6 +2,7 @@ import Product from "./Product";
 import { productData } from "../utils/constant";
 import { useEffect, useState } from "react";
 import Skeleton from "./Skeleton";
+import { Link } from "react-router-dom";
 
 const ProductCard = () => {
 
@@ -51,7 +52,7 @@ const ProductCard = () => {
             {
               tempProdList.map((product,index) => {
                 return (
-                  <Product key={product.id} product={product}/>
+                  <Link key={product.id} to={`/product/${product.id}`}><Product  product={product}/></Link>
                 )
               })
             }
