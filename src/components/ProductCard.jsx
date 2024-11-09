@@ -44,7 +44,7 @@ const ProductCard = () => {
         }}>Search</button>
         </div>
         <button onClick={() => {
-          setTempProdList(filteredList.filter((prod) => (
+          setTempProdList(tempProdList.filter((prod) => (
             prod.rating.rate >= 4
           )))
         }} style={{"marginTop":"10px"}}>Top Rated Products</button>

@@ -8,6 +8,7 @@ import Men from "./components/Men";
 import Women from "./components/Women";
 import Error from "./components/Error";
 import ProductDetails from "./components/ProductDetails";
+import About from "./components/About";
 
 {/* <div id="container">
     <h1>I am Heading h1</h1>
@@ -80,6 +81,10 @@ const appRouter = createBrowserRouter([
             {
                 path:'/product/:id',
                 element:<ProductDetails/>
+            },
+            {
+                path:'/about',
+                element:<About/>
             }
         ],
         errorElement:<Error/>
