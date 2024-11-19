@@ -21,6 +21,10 @@ class ProfileClass extends React.Component{
         this.setState({
             userDetails:resData
         })
+
+        this.timer = setInterval(() => {
+            console.log('Ekansh Ji');
+        },1000)
     }
 
     // only during updation
@@ -30,7 +34,10 @@ class ProfileClass extends React.Component{
 
     //after we leave the page
     componentWillUnmount(){
-        console.log('Unmounted!!')
+        console.log('Unmounted!!');
+
+        // cleanup
+        clearInterval(this.timer);
     }
 
 

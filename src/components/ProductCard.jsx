@@ -22,6 +22,15 @@ const ProductCard = () => {
    // [kuch]  ---> called each time kuch is changed
   useEffect(() => {
     fetchData();
+
+    const timer = setInterval(() => {
+      console.log('Functional Component!!');
+    },1000);
+
+    return () => {
+      clearInterval(timer);
+      console.log('Clean Up!!')
+    }
   },[])
 
 
