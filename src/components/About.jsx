@@ -18,15 +18,15 @@ const About = () => {
 class AboutClass extends Component{
   constructor(){
     super();
-    console.log('Parent cnst called!!')
+    // console.log('Parent cnst called!!')
   }
 
   componentDidMount(){
-    console.log('Parent compnentDidMount Called!!!');
+    // console.log('Parent compnentDidMount Called!!!');
   }
 
   render(){
-    console.log('Parent render called!!!')
+    // console.log('Parent render called!!!')
     return(
       <ProfileClass name="keshav" address="Pune" email="keshav@gmail.com"/>
     )
