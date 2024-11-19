@@ -6,9 +6,16 @@ class ProfileClass extends React.Component{
         this.state = {
             count : 0
         }
+        console.log('child constructor called!!')
+    }
+
+    // this is same as useEffect in functional components
+    componentDidMount(){
+        console.log('child component did mount is called!!');
     }
 
     render(){
+        console.log('child render called!!');
         return (
             <div style={{'border' : '1px solid black'}}>
                 <h1>Class Based Component</h1>
