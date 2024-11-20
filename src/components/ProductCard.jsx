@@ -1,4 +1,4 @@
-import Product from "./Product";
+import Product, { HOC } from "./Product";
 import { productData } from "../utils/constant";
 import { useEffect, useState } from "react";
 import Skeleton from "./Skeleton";
@@ -15,6 +15,8 @@ const ProductCard = () => {
     setFilteredList(resData);
     setTempProdList(resData);
   };
+
+  const HOCComponent = HOC(Product)
 
   // []  ---> only called one time during rendering
   // no dependency array passed ---> calles each time this page is rendered
@@ -82,7 +84,9 @@ const ProductCard = () => {
         {tempProdList.map((product, index) => {
           return (
             <Link key={product.id} to={`/product/${product.id}`}>
-              <Product product={product} />
+              {
+                product.rating.rate >= 4 ? <HOCComponent product={product}/> :  <Product product={product} />
+              }
             </Link>
           );
         })}
