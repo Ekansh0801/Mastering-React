@@ -1,13 +1,15 @@
 import Product, { HOC } from "./Product";
 import { productData } from "../utils/constant";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import Skeleton from "./Skeleton";
 import { Link } from "react-router-dom";
+import UserContext from "../utils/UserContext";
 
 const ProductCard = () => {
   const [filteredList, setFilteredList] = useState([]);
   const [serachText, setSearchText] = useState([]);
   const [tempProdList, setTempProdList] = useState([]);
+
   const fetchData = async () => {
     const data = await fetch("https://fakestoreapi.com/products");
     const resData = await data.json();
@@ -41,6 +43,8 @@ const ProductCard = () => {
   //     <Skeleton/>
   //   )
   // }
+
+  const user = useContext(UserContext);
 
   return filteredList.length === 0 ? (
     <Skeleton />
@@ -77,7 +81,10 @@ const ProductCard = () => {
         className="bg-purple-600 px-6 py-2 rounded-sm text-white"
       >
         Top Rated Products
-      </button>        
+      </button> 
+      <div>
+        <input type="text" value={user.name} onChange={(e) => {user.setUserName(e.target.value)}} className="border border-black px-2 py-1"/>
+        </div>       
       </div>
 
       <div className=" max-w-7xl mx-auto mt-10 grid grid-cols-5 gap-4">

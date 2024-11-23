@@ -1,4 +1,5 @@
 import React from "react";
+import UserContext from "../utils/UserContext";
 
 class ProfileClass extends React.Component{
     constructor(){
@@ -50,6 +51,11 @@ class ProfileClass extends React.Component{
                 <h3>Location : {this.state.userDetails.location}</h3>
                 {/* <h3>Email : {this.state.userDetails.email}</h3> */}
                 <img src={this.state.userDetails.avatar_url}/>
+                <UserContext.Consumer>
+                    {(data) => (
+                        <h1>Name: {data.name}</h1>
+                    )}
+                </UserContext.Consumer>
                 <h1>Count : {this.state.userDetails.count}</h1>
                 <button onClick = {() => {
                     // you can't update state variable directly

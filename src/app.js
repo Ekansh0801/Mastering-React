@@ -1,4 +1,4 @@
-import React,{Suspense, lazy} from "react";
+import React,{Suspense, lazy, useState} from "react";
 import ReactDOM from "react-dom/client";
 import Navbar from "./components/Navbar";
 import ProductCard from "./components/ProductCard";
@@ -8,6 +8,7 @@ import Men from "./components/Men";
 import Women from "./components/Women";
 import Error from "./components/Error";
 import ProductDetails from "./components/ProductDetails";
+import UserContext from "./utils/UserContext";
 // import About from "./components/About";
 // import Grocery from "./components/Grocery";
 
@@ -57,11 +58,15 @@ const About = lazy(() => import("./components/About"));
 
 
 const App = () => {
+    const [username,setUserName] = useState('swati kaushish')
     return (
+        <UserContext.Provider value={{name:username,setUserName}}>
         <div>
             <Navbar/>
             <Outlet/>
         </div>
+        </UserContext.Provider>
+        
     )
 }
 
