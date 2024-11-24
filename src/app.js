@@ -9,6 +9,9 @@ import Women from "./components/Women";
 import Error from "./components/Error";
 import ProductDetails from "./components/ProductDetails";
 import UserContext from "./utils/UserContext";
+import { Provider } from "react-redux";
+import appStore from "./store/store";
+import Cart from "./components/Cart";
 // import About from "./components/About";
 // import Grocery from "./components/Grocery";
 
@@ -60,12 +63,14 @@ const About = lazy(() => import("./components/About"));
 const App = () => {
     const [username,setUserName] = useState('swati kaushish')
     return (
+        <Provider store={appStore}>
         <UserContext.Provider value={{name:username,setUserName}}>
         <div>
             <Navbar/>
             <Outlet/>
         </div>
         </UserContext.Provider>
+        </Provider>
         
     )
 }
@@ -92,6 +97,10 @@ const appRouter = createBrowserRouter([
                 element:<Women/>
             },
             {
+                path:'/cart',
+                element:<Cart/>
+            },
+            {
                 path:'/product/:id',
                 element:<ProductDetails/>
             },
@@ -102,7 +111,7 @@ const appRouter = createBrowserRouter([
             {
                 path:'/grocery',
                 element:<Suspense fallback={<h1>Loading...</h1>}><Grocery/></Suspense>
-            }
+            },
         ],
         errorElement:<Error/>
     },
